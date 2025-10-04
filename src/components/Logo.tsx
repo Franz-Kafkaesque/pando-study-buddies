@@ -1,32 +1,20 @@
-import pandoLogo from "@/assets/pando-logo.png";
-
 interface LogoProps {
   size?: "sm" | "md" | "lg";
-  showText?: boolean;
   className?: string;
 }
 
-export const Logo = ({ size = "md", showText = true, className = "" }: LogoProps) => {
-  const sizeClasses = {
-    sm: "h-8",
-    md: "h-12",
-    lg: "h-16"
-  };
-
+export const Logo = ({ size = "md", className = "" }: LogoProps) => {
   const textSizeClasses = {
-    sm: "text-2xl",
-    md: "text-3xl",
-    lg: "text-5xl"
+    sm: "text-xl",
+    md: "text-2xl",
+    lg: "text-4xl"
   };
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <img src={pandoLogo} alt="Pando Logo" className={sizeClasses[size]} />
-      {showText && (
-        <span className={`font-serif font-semibold tracking-tight ${textSizeClasses[size]}`}>
-          Pando.
-        </span>
-      )}
+    <div className={`flex items-center ${className}`}>
+      <span className={`font-serif italic font-normal ${textSizeClasses[size]} text-foreground/90`}>
+        pando
+      </span>
     </div>
   );
 };

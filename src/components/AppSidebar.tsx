@@ -32,7 +32,7 @@ export function AppSidebar() {
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarContent>
         <div className="px-4 py-6">
-          <Logo size="sm" showText={!isCollapsed} />
+          <Logo size="sm" />
         </div>
 
         <SidebarGroup>

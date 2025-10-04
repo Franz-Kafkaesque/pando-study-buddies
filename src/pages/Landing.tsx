@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
 import { useNavigate } from "react-router-dom";
 import forestPainting from "@/assets/forest-painting.png";
+import { BookOpen, Users } from "lucide-react";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -9,98 +10,78 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-10 border-b border-border/50 bg-card/30 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="absolute top-0 left-0 right-0 z-10 bg-background/5 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-6 flex items-center justify-between">
           <Logo size="sm" />
-          <div className="flex gap-3">
-            <Button variant="ghost" onClick={() => navigate("/auth")} className="text-foreground">
-              Sign In
-            </Button>
-            <Button onClick={() => navigate("/auth")} className="gradient-gold border-0">
-              Get Started
-            </Button>
-          </div>
+          <Button 
+            variant="ghost" 
+            onClick={() => navigate("/auth")}
+            className="text-foreground/70 hover:text-foreground font-light"
+          >
+            enter
+          </Button>
         </div>
       </header>
 
       {/* Hero Section with Painting Background */}
       <main>
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-          {/* Background Image with Overlay */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image with Subtle Overlay */}
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${forestPainting})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background" />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 container mx-auto px-4 py-32 text-center">
-            <div className="max-w-3xl mx-auto space-y-8">
-              <Logo size="lg" className="justify-center mb-6 animate-fade-in" />
-              <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight text-foreground animate-fade-in [animation-delay:100ms]">
-                Work Alone, Together
+          <div className="relative z-10 container mx-auto px-6 py-32 text-center">
+            <div className="max-w-2xl mx-auto space-y-6">
+              <h1 className="text-4xl md:text-6xl font-serif font-normal tracking-wide text-foreground/90 leading-tight">
+                a place to work,<br />
+                alone together
               </h1>
-              <p className="text-lg md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed font-light animate-fade-in [animation-delay:200ms]">
-                Like the Pando forest—many stems, one root. Grow in your own space, while staying connected.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 animate-fade-in [animation-delay:300ms]">
-                <Button 
-                  size="lg" 
-                  onClick={() => navigate("/auth")}
-                  className="gradient-gold border-0 text-base px-8 shadow-[var(--shadow-soft)]"
-                >
-                  Begin Your Journey
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About Section - Warm & Human */}
-        <section className="bg-card py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-8">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground">
-                A Space to Grow
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Pando is the name of the world's largest tree. It may look like a forest, but underneath, 
-                every stem is connected to a single root system. That's what this space is about: growing 
-                in your own way, at your own pace, but never truly alone.
+              <p className="text-base md:text-lg text-foreground/60 max-w-xl mx-auto leading-relaxed font-light">
+                like the pando grove—what looks like many trees is really one organism,<br />
+                connected beneath the surface
               </p>
             </div>
           </div>
         </section>
 
-        {/* Features - Simple & Warm */}
-        <section className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-serif font-semibold text-foreground">Your Own Rhythm</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Log your sessions, build your streaks, and watch your progress unfold. 
-                    No pressure, just presence.
+        {/* About Section */}
+        <section className="bg-card/50 py-20">
+          <div className="container mx-auto px-6">
+            <div className="max-w-2xl mx-auto space-y-6">
+              <p className="text-lg md:text-xl text-foreground/70 leading-relaxed font-light text-center">
+                we learn best when we feel both independent and connected. this is a space 
+                to track your work, share your journey, and find quiet companionship in others 
+                doing the same.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-16">
+                <div className="space-y-3">
+                  <BookOpen className="w-8 h-8 text-primary/60 mb-4" strokeWidth={1.5} />
+                  <h3 className="text-xl font-serif font-normal text-foreground/90">your own pace</h3>
+                  <p className="text-foreground/60 leading-relaxed font-light">
+                    keep a record of your sessions. notice patterns. build something sustainable, 
+                    not rushed.
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-serif font-semibold text-foreground">Connected Roots</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Join study groups where you can share your journey, stay accountable, 
-                    and grow alongside others.
+                <div className="space-y-3">
+                  <Users className="w-8 h-8 text-accent/60 mb-4" strokeWidth={1.5} />
+                  <h3 className="text-xl font-serif font-normal text-foreground/90">shared ground</h3>
+                  <p className="text-foreground/60 leading-relaxed font-light">
+                    join small groups. stay accountable without pressure. witness each other's 
+                    progress.
                   </p>
                 </div>
               </div>
@@ -109,21 +90,18 @@ const Landing = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-card">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-2xl mx-auto space-y-8">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground">
-                Ready to Begin?
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Join a community of learners who work alone, together.
+        <section className="py-20 bg-card/30">
+          <div className="container mx-auto px-6 text-center">
+            <div className="max-w-xl mx-auto space-y-6">
+              <p className="text-lg text-foreground/70 font-light italic">
+                ready when you are
               </p>
               <Button 
-                size="lg" 
                 onClick={() => navigate("/auth")}
-                className="gradient-gold border-0 text-base px-8 shadow-[var(--shadow-soft)]"
+                variant="outline"
+                className="border-foreground/20 text-foreground/70 hover:bg-foreground/5 font-light px-8"
               >
-                Start Today
+                begin
               </Button>
             </div>
           </div>
@@ -131,9 +109,10 @@ const Landing = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-8 text-center text-muted-foreground">
-          <p>&copy; 2025 Pando. Work Alone, Together.</p>
+      <footer className="border-t border-border/30">
+        <div className="container mx-auto px-6 py-10 text-center">
+          <Logo size="sm" className="justify-center mb-3" />
+          <p className="text-sm text-muted-foreground/60 font-light">© 2025</p>
         </div>
       </footer>
     </div>
